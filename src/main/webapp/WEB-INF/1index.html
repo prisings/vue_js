@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    Hello World!
+    <div id="app">
+        {{ nextYear('가위바위보 ') }} 
+        <input :type="type" :value="inputData">
+        {{ sum(100)}}
+        <button>Click</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                person:{
+                name: 'Test Vue',
+                age: 1
+                },
+                inputData: 'Hello',
+                type: 'number'
+            },
+            methods:{
+                nextYear: function(greeting){
+                    return greeting  + this.person.name + ' 내년에 ' + (this.person.age + 1) + '살 입니다';
+                },
+                otherMethod: function(){
+                    this.nextYear();
+                },
+                sum: function(ex){
+                    var sum = 0
+                    for(i = 0; i <= ex; i++){
+                        sum += i;
+                    }
+                    return sum;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
