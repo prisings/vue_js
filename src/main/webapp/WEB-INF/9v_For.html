@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            {{people[0].name}}
+        </div>
+        <div>
+            {{people[1].name}}
+        </div>
+        <div>
+            {{people[2].name}}
+        </div>
+        <div v-for="(person,index) in people" :key="person.id">
+            {{person.name}} {{person.age}} {{index}}
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                people: [
+                    {id:1, name: 'a', age: 20 },
+                    {id:2, name: 'b', age: 21 },
+                    {id:3, name: 'c', age: 22 },
+                    {id:4, name: 'ab', age: 20 },
+                    {id:5, name: 'bc', age: 21 },
+                    {id:6, name: 'cd', age: 22 },
+                    {id:7, name: 'abc', age: 20 },
+                    {id:8, name: 'bcd', age: 21 },
+                    {id:9, name: 'cde', age: 22 }
+                ]
+            },
+            methods: {
+            },
+            computed: {
+            },
+            watch: {
+            }
+        })
+    </script>
+</body>
+
+</html>
