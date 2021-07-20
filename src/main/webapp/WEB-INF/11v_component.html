@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{name}}
+        <button @click="change">c</button>
+        <test_change></test_change>
+    </div>
+    <div id="app-1">
+        {{name}}
+        <test_change></test_change>
+    </div>
+    <script>
+        //컴포넌트안의 템플릿에 다른 컴포넌트를 넣어도 잘들어간다.
+        //컴포넌트를 지역변수로 사용하는 방법
+        //컴포넌트 안의 모든 내용을 객체에 집어넣고
+        //vue인스턴드 안에 컴포넌트를 선언 컴포넌트 이름 : 객체이름 을 해주면 된다.
+        Vue.component('test_change', {
+            template: `
+            <div>
+            {{name}}<br>
+            <button @click="change">c</button>
+            </div>
+            `,
+            data() {
+                return {
+                    name: '@#!#'
+                }
+            },
+            methods: {
+                change() {
+                    this.name = '!@#%!W$';
+                }
+            }
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                name: '@#!#'
+            },
+            methods: {
+            },
+            computed: {
+            },
+            watch: {
+            }
+        })
+
+        new Vue({
+            el: '#app-1',
+            data: {
+                name: 'abcd'
+            },
+            methods: {
+            },
+            computed: {
+            },
+            watch: {
+            }
+        })
+    </script>
+</body>
+
+</html>
